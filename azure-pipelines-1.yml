@@ -2,19 +2,29 @@ trigger:
 - main
 
 pool:
-  vmImage: ubuntu-latest
+ name: ubuntu-latest
 
 stages:
-  - stage: stageA
-    displayName: "This is stage A"
+  - stage: DevStage
+    displayName: This is DevStage
     jobs:
-      - job: JobA
+      - job: DevJob
+  
+  - stage: QAStage
+    displayName: This is QAStage
+    jobs:
+      - job: QAJob
 
-  - stage: stageB
-    displayName: "This is stage B"
+  - stage: Pre-Prod-Stage
+    displayName: This is Preprod-Stage
     jobs:
-      - job: JobB
-     
+      - job: PreProdJob
+
+  - stage: TestingStage
+    displayName: This is TestingStage
+    jobs:
+      - job: TestingJob
+
 
 
 
