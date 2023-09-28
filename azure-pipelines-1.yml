@@ -29,10 +29,13 @@ stages:
     - TestingStage
     jobs:
       - job: PreProdJob
+        steps:
+          - task: Maven@4
+            
   
   - stage: PostFailureTask
     displayName: This is Postfailure Analysis Stage
-    condition: failed()
+    condition: failed('PreProdStage')
     dependsOn: 
     jobs:
       - job: PreProdJob
