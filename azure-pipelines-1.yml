@@ -15,7 +15,7 @@ stages:
     jobs:
       - job: QAJob
 
-  - stage: Pre-Prod-Stage
+  - stage: PreProdStage
     displayName: This is Preprod-Stage
     jobs:
       - job: PreProdJob
