@@ -14,6 +14,11 @@ stages:
     displayName: This is QAStage
     jobs:
       - job: QAJob
+  
+  - stage: TestingStage
+    displayName: This is TestingStage
+    jobs:
+      - job: TestingJob
 
   - stage: PreProdStage
     displayName: This is Preprod-Stage
@@ -21,10 +26,7 @@ stages:
     jobs:
       - job: PreProdJob
 
-  - stage: TestingStage
-    displayName: This is TestingStage
-    jobs:
-      - job: TestingJob
+
 
 
 
