@@ -29,8 +29,6 @@ stages:
     - TestingStage
     jobs:
       - job: PreProdJob
-        steps:
-          - task: Maven@4
             
   
   - stage: PostFailureTask
