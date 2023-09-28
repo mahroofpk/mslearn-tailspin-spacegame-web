@@ -35,8 +35,7 @@ stages:
   
   - stage: PostFailureTask
     displayName: This is Postfailure Analysis Stage
-    condition: failed('PreProdStage')
-    dependsOn: 
+    condition: failed()
     jobs:
       - job: PreProdJob
 
