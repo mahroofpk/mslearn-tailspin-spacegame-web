@@ -17,6 +17,7 @@ stages:
 
   - stage: PreProdStage
     displayName: This is Preprod-Stage
+    dependsOn: TestingStage
     jobs:
       - job: PreProdJob
 
