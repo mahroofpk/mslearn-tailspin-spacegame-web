@@ -12,17 +12,21 @@ stages:
   
   - stage: QAStage
     displayName: This is QAStage
+    dependsOn: DevStage
     jobs:
       - job: QAJob
   
   - stage: TestingStage
     displayName: This is TestingStage
+    dependsOn: DevStage
     jobs:
       - job: TestingJob
 
   - stage: PreProdStage
     displayName: This is Preprod-Stage
-    dependsOn: QAStage
+    dependsOn: 
+    - QAStage
+    - TestingStage
     jobs:
       - job: PreProdJob
 
