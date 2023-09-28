@@ -35,9 +35,9 @@ stages:
   
   - stage: PostFailureTask
     displayName: This is Postfailure Analysis Stage
-    condition: failed()
+    condition: succeeded('PreProdJob')
     jobs:
-      - job: PreProdJob
+      - job: PostFailureJob
 
 
 
