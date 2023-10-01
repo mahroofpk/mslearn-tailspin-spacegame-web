@@ -8,7 +8,8 @@ stages:
       - job: 'CheckoutGitCode'
         steps:
          - checkout: self
-      
+         
+  - stage: Build
     jobs:
       - job: 
         steps:
