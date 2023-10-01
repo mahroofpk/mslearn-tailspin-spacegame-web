@@ -15,27 +15,20 @@ stages:
     dependsOn: DevStage
     jobs:
       - job: QAJob
+      - task: Maven@4
+        inputs:
+          mavenPomFile: 'pom.xml'
+          goals: 'install'
+          publishJUnitResults: false
+          javaHomeOption: 'JDKVersion'
+          mavenVersionOption: 'Default'
+          mavenAuthenticateFeed: false
+          effectivePomSkip: false
+          sonarQubeRunAnalysis: false
   
-  - stage: TestingStage
-    displayName: This is TestingStage
-    dependsOn: DevStage
-    jobs:
-      - job: TestingJob
 
-  - stage: PreProdStage
-    displayName: This is Preprod-Stage
-    dependsOn: 
-    - QAStage
-    - TestingStage
-    jobs:
-      - job: PreProdJob
-            
   
-  - stage: PostFailureTask
-    displayName: This is Postfailure Analysis Stage
-    condition: succeeded('PreProdJob')
-    jobs:
-      - job: PostFailureJob
+
 
 
 
