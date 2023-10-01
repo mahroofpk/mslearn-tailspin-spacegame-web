@@ -10,4 +10,9 @@ parameters:
       - ubuntu-latest
 
 stages:
-  - stage: Helloworld
+  - stage: HelloWorldStage
+    jobs:
+      - job: HelloWorldJob
+      
+
+  
