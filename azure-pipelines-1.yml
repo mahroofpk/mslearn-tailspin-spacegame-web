@@ -3,7 +3,7 @@ trigger: none
 parameters:
   - name: image
     displayName: PoolImage
-    default: macOS-latest
+    default: macos-latest
     type: string
     values:
       - windows-latest
