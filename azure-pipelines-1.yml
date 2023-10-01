@@ -8,6 +8,21 @@ stages:
       - job: 'CheckoutGitCode'
         steps:
          - checkout: self
+      
+    jobs:
+      - job: 
+        steps:
+          - task: Maven@4
+            displayName: Maven Build
+            inputs:
+              mavenPomFile: 'pom.xml'
+              goals: 'install'
+              publishJUnitResults: false
+              javaHomeOption: 'JDKVersion'
+              mavenVersionOption: 'Default'
+              mavenAuthenticateFeed: false
+              effectivePomSkip: false
+              sonarQubeRunAnalysis: false
 
   
 
