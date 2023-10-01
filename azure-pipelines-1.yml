@@ -1,31 +1,16 @@
-trigger:
-- main
-
+trigger: none
 pool:
- vmImage: 'ubuntu-latest'
+  vmImage: windows-latest
 
 stages:
-  - stage: DevStage
-    displayName: This is DevStage
+  - stage: CheckoutCode
     jobs:
-      - job: DevJob
+      - job: 'CheckoutGitCode'
+        steps:
+         - checkout: self
+
   
-  - stage: QAStage
-    displayName: This is QAStage
-    dependsOn: DevStage
-    jobs:
-      - job: QAJob
-      - task: Maven@4
-        inputs:
-          mavenPomFile: 'pom.xml'
-          goals: 'install'
-          publishJUnitResults: false
-          javaHomeOption: 'JDKVersion'
-          mavenVersionOption: 'Default'
-          mavenAuthenticateFeed: false
-          effectivePomSkip: false
-          sonarQubeRunAnalysis: false
-  
+
 
   
 
